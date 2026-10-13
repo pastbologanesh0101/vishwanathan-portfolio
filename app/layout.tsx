@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import StarBackground from "./components/StarBackground";
 import ScrollReveal from "./components/ScrollReveal";
+import Cursor from "./components/Cursor";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <StarBackground />
+        <Cursor />
         <ScrollReveal />
         {children}
       </body>

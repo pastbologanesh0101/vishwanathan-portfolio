@@ -1,3 +1,7 @@
+import TiltCard from "./components/TiltCard";
+import MagneticBtn from "./components/MagneticBtn";
+import HeroSpotlight from "./components/HeroSpotlight";
+
 const PROJECTS = [
   {
     title: "TransportLab",
@@ -91,21 +95,46 @@ export default function Page() {
       <div className="wrap">
 
         {/* ── HERO ── */}
-        <section className="hero" id="hero">
-          <div className="kicker h0">
+        <section className="hero" id="hero" style={{ position: "relative", overflow: "hidden" }}>
+          <HeroSpotlight />
+
+          {/* Avatar */}
+          <div className="avatar-wrap h0">
+            {/* Replace /avatar.jpg once you drop a photo into /public */}
+            <div className="avatar-ring-spin" />
+            <div
+              className="avatar-img"
+              style={{
+                background: "linear-gradient(135deg, #0d1826 0%, #1a2840 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "2rem",
+                color: "var(--accent)",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              VT
+            </div>
+            <div className="avatar-glow" />
+          </div>
+
+          <div className="kicker h1">
             <span className="kicker-dot" />
             B.Tech Computer Science &amp; Engineering · Systems &amp; Networking
           </div>
 
-          <h1 className="hero-name h1">
+          <h1 className="hero-name h2">
             Vishwanathan<br />Tamizharasan
           </h1>
 
-          <p className="hero-role h2">
+          <p className="hero-role h3">
             VIT Vellore · 2nd Year · Expected 2029 · U.S. Citizen
           </p>
 
-          <div className="contact-row h3">
+          <div className="contact-row h4">
             <a className="contact-item" href="mailto:pranav27062007@gmail.com">
               <MailIcon />
               pranav27062007@gmail.com
@@ -118,90 +147,65 @@ export default function Page() {
             <span>Bangalore, India</span>
           </div>
 
-          <div className="cta-row h4">
-            <a
-              className="btn primary"
+          <div className="cta-row" style={{ animationDelay: "0.5s" }}>
+            <MagneticBtn
               href="https://github.com/pastbologanesh0101"
+              className="btn primary"
               target="_blank"
               rel="noopener noreferrer"
             >
               <GithubIcon />
               GitHub
-            </a>
-            <a
-              className="btn ghost"
+            </MagneticBtn>
+            <MagneticBtn
               href="https://linkedin.com/in/vishwanathan-tamizharasan"
+              className="btn ghost"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LinkedinIcon />
               LinkedIn
-            </a>
+            </MagneticBtn>
           </div>
         </section>
 
         {/* ── SKILLS ── */}
         <section id="skills">
           <p className="section-label reveal">Technical Skills</p>
-
           <div className="reveal reveal-1">
-            <div className="skill-row">
-              <div className="skill-cat">Languages</div>
-              <div className="skill-list">
-                <b>Python</b> · TypeScript / JavaScript · C
+            {[
+              { cat: "Languages", list: <><b>Python</b> · TypeScript / JavaScript · C</> },
+              { cat: "Web & Data", list: <><b>Next.js</b> · React · PostgreSQL · Supabase · Tailwind CSS</> },
+              { cat: "Systems", list: <>Sockets · <b>TCP/UDP protocol design</b> · Congestion control · Raft consensus · Linux namespaces &amp; cgroups · Virtual memory / paging</> },
+              { cat: "Tooling", list: <>Git · pytest · Vitest · GitHub Actions CI/CD · Vercel</> },
+            ].map(({ cat, list }) => (
+              <div className="skill-row" key={cat}>
+                <div className="skill-cat">{cat}</div>
+                <div className="skill-list">{list}</div>
               </div>
-            </div>
-            <div className="skill-row">
-              <div className="skill-cat">Web &amp; Data</div>
-              <div className="skill-list">
-                <b>Next.js</b> · React · PostgreSQL · Supabase · Tailwind CSS
-              </div>
-            </div>
-            <div className="skill-row">
-              <div className="skill-cat">Systems</div>
-              <div className="skill-list">
-                Sockets · <b>TCP/UDP protocol design</b> · Congestion control · Raft consensus · Linux namespaces &amp; cgroups · Virtual memory / paging
-              </div>
-            </div>
-            <div className="skill-row">
-              <div className="skill-cat">Tooling</div>
-              <div className="skill-list">
-                Git · pytest · Vitest · GitHub Actions CI/CD · Vercel
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
         {/* ── PROJECTS ── */}
         <section id="projects">
           <p className="section-label reveal">Projects</p>
-
           {PROJECTS.map((proj, i) => (
-            <div key={proj.title} className={`proj-card reveal reveal-${Math.min(i + 1, 3) as 1 | 2 | 3}`}>
+            <TiltCard key={proj.title} className={`reveal reveal-${Math.min(i + 1, 3) as 1 | 2 | 3}`}>
               <div className="proj-header">
                 <span className="proj-title">{proj.title}</span>
-                <a
-                  className="proj-link"
-                  href={proj.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubIcon />
-                  <ArrowIcon />
+                <a className="proj-link magnetic" href={proj.url} target="_blank" rel="noopener noreferrer">
+                  <GithubIcon /><ArrowIcon />
                 </a>
               </div>
               <p className="proj-subtitle">{proj.subtitle}</p>
               <div className="proj-tags">
-                {proj.tags.map((t) => (
-                  <span key={t} className="proj-tag">{t}</span>
-                ))}
+                {proj.tags.map((t) => <span key={t} className="proj-tag">{t}</span>)}
               </div>
               <ul className="proj-bullets">
-                {proj.bullets.map((b, j) => (
-                  <li key={j}>{b}</li>
-                ))}
+                {proj.bullets.map((b, j) => <li key={j}>{b}</li>)}
               </ul>
-            </div>
+            </TiltCard>
           ))}
         </section>
 
@@ -225,20 +229,16 @@ export default function Page() {
           <p className="section-label reveal">Leadership</p>
           <div className="reveal reveal-1">
             <p className="fact-title">Management Head</p>
-            <p className="fact-sub" style={{ color: "var(--accent)", marginBottom: 8 }}>
-              Team ACE · VIT Vellore
-            </p>
+            <p className="fact-sub" style={{ color: "var(--accent)", marginBottom: 8 }}>Team ACE · VIT Vellore</p>
             <p style={{ fontSize: "0.875rem", color: "var(--ink-soft)", lineHeight: 1.65 }}>
               Lead a student team, coordinating internal operations, communication, and cross-functional logistics.
             </p>
           </div>
         </section>
 
-        {/* ── FOOTER ── */}
         <footer className="footer reveal" style={{ marginTop: 70 }}>
           <p>Vishwanathan Tamizharasan · pranav27062007@gmail.com · Bangalore</p>
         </footer>
-
       </div>
     </>
   );

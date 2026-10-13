@@ -433,6 +433,90 @@ body {
 .reveal-2 { animation-delay: 0.12s; }
 .reveal-3 { animation-delay: 0.18s; }
 
+/* ── custom cursor ── */
+.cur-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  margin: -2.5px 0 0 -2.5px;
+  box-shadow: 0 0 8px rgba(140,194,255,0.8);
+  transition: opacity 0.3s;
+  will-change: transform;
+}
+.cur-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(140,194,255,0.35);
+  pointer-events: none;
+  z-index: 9998;
+  margin: -18px 0 0 -18px;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease,
+              background 0.25s ease, opacity 0.3s;
+  will-change: transform;
+}
+.cur-trail {
+  position: fixed;
+  top: 0; left: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9997;
+  margin: -2.5px 0 0 -2.5px;
+  will-change: transform;
+}
+
+/* ── photo avatar ── */
+.avatar-wrap {
+  position: relative;
+  width: 88px; height: 88px;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+.avatar-img {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 1px solid var(--rule-strong);
+  filter: grayscale(15%);
+}
+.avatar-ring-spin {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px dashed rgba(140,194,255,0.4);
+  animation: spin 12s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.avatar-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 24px 4px rgba(140,194,255,0.15);
+}
+
+/* ── spotlight glow follows cursor on hero ── */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+  border-radius: 0;
+}
+.hero:hover .hero-spotlight { opacity: 1; }
+
 /* ── responsive ── */
 @media (max-width: 600px) {
   body { font-size: 14.5px; }
