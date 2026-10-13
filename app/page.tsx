@@ -158,7 +158,7 @@ export default function Page() {
               GitHub
             </MagneticBtn>
             <MagneticBtn
-              href="https://linkedin.com/in/vishwanathan-tamizharasan"
+              href="https://www.linkedin.com/in/vishwanathan-tamizharasan-168b86286/"
               className="btn ghost"
               target="_blank"
               rel="noopener noreferrer"
