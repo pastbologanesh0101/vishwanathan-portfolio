@@ -100,6 +100,7 @@ export default function Page() {
 
           {/* Avatar */}
           <div className="avatar-wrap h0">
+            <div className="avatar-ring-spin-2" />
             <div className="avatar-ring-spin" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

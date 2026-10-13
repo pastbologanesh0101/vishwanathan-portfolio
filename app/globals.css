@@ -474,25 +474,33 @@ body {
 /* ── photo avatar ── */
 .avatar-wrap {
   position: relative;
-  width: 100px; height: 100px;
-  margin-bottom: 30px;
+  width: 160px; height: 160px;
+  margin-bottom: 36px;
   flex-shrink: 0;
 }
 .avatar-img {
-  width: 100px; height: 100px;
+  width: 160px; height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 12%;
   display: block;
-  border: 1px solid var(--rule-strong);
-  filter: grayscale(10%);
+  border: 2px solid rgba(140,194,255,0.25);
+  filter: grayscale(8%);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 .avatar-ring-spin {
   position: absolute;
-  inset: -6px;
+  inset: -9px;
   border-radius: 50%;
-  border: 1px dashed rgba(140,194,255,0.4);
-  animation: spin 12s linear infinite;
+  border: 1px dashed rgba(140,194,255,0.35);
+  animation: spin 14s linear infinite;
+}
+.avatar-ring-spin-2 {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px dashed rgba(140,194,255,0.15);
+  animation: spin 22s linear infinite reverse;
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -502,7 +510,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  box-shadow: 0 0 24px 4px rgba(140,194,255,0.15);
+  box-shadow: 0 0 40px 8px rgba(140,194,255,0.12), 0 0 80px 20px rgba(80,140,200,0.06);
 }
 
 /* ── spotlight glow follows cursor on hero ── */

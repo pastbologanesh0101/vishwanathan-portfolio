@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import StarBackground from "./components/StarBackground";
+import ForestBackground from "./components/ForestBackground";
 import ScrollReveal from "./components/ScrollReveal";
 import Cursor from "./components/Cursor";
 
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body>
-        <StarBackground />
+        <ForestBackground />
         <Cursor />
         <ScrollReveal />
         {children}
