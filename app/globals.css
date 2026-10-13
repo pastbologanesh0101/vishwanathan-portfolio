@@ -474,22 +474,22 @@ body {
 /* ── photo avatar ── */
 .avatar-wrap {
   position: relative;
-  width: 88px; height: 88px;
-  margin-bottom: 28px;
+  width: 100px; height: 100px;
+  margin-bottom: 30px;
   flex-shrink: 0;
 }
 .avatar-img {
-  width: 88px; height: 88px;
+  width: 100px; height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 15%;
   display: block;
   border: 1px solid var(--rule-strong);
-  filter: grayscale(15%);
+  filter: grayscale(10%);
 }
 .avatar-ring-spin {
   position: absolute;
-  inset: -5px;
+  inset: -6px;
   border-radius: 50%;
   border: 1px dashed rgba(140,194,255,0.4);
   animation: spin 12s linear infinite;

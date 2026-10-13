@@ -100,24 +100,13 @@ export default function Page() {
 
           {/* Avatar */}
           <div className="avatar-wrap h0">
-            {/* Replace /avatar.jpg once you drop a photo into /public */}
             <div className="avatar-ring-spin" />
-            <div
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/avatar.jpg"
+              alt="Vishwanathan Tamizharasan"
               className="avatar-img"
-              style={{
-                background: "linear-gradient(135deg, #0d1826 0%, #1a2840 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "2rem",
-                color: "var(--accent)",
-                letterSpacing: "-0.03em",
-              }}
-            >
-              VT
-            </div>
+            />
             <div className="avatar-glow" />
           </div>
 
